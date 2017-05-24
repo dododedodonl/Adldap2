@@ -59,4 +59,12 @@ class OpenLDAP extends ActiveDirectory
     {
         //
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function convertSid()
+    {
+        return false;
+    }
 }

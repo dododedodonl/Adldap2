@@ -1213,4 +1213,11 @@ interface SchemaInterface
      * @return array
      */
     public function customMap();
+
+    /**
+     * Convert SID. Compatibility for OpenLDAP
+     *
+     * @return boolean
+     */
+    public function convertSid();
 }

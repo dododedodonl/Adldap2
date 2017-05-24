@@ -673,6 +673,10 @@ abstract class Model implements ArrayAccess, JsonSerializable
     {
         $sid = $this->getFirstAttribute($this->schema->objectSid());
 
+        if( ! $this->scehma->convertSid()) {
+            return $sid ? $sid : false;
+        }
+
         return $sid ? Utilities::binarySidToString($sid) : false;
     }
 
@@ -1083,7 +1087,7 @@ abstract class Model implements ArrayAccess, JsonSerializable
      * @param string|array $attributes
      *
      * Delete many attributes ["memberuid" => "username"]
-     * 
+     *
      * Delete attribute, does not depend on the number of values
      * ["memberuid" => []]
      *
@@ -1234,7 +1238,7 @@ abstract class Model implements ArrayAccess, JsonSerializable
             );
         }
     }
-    
+
     /**
      * Determine if the new and old values for a given key are numerically equivalent.
      *

@@ -1083,4 +1083,12 @@ class ActiveDirectory implements SchemaInterface
     {
         return [];
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function convertSid()
+    {
+        return true;
+    }
 }
