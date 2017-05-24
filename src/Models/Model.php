@@ -673,7 +673,7 @@ abstract class Model implements ArrayAccess, JsonSerializable
     {
         $sid = $this->getFirstAttribute($this->schema->objectSid());
 
-        if( ! $this->scehma->convertSid()) {
+        if( ! $this->schema->convertSid()) {
             return $sid ? $sid : false;
         }
 
