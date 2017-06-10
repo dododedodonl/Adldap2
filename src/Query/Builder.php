@@ -496,7 +496,7 @@ class Builder
 
     /**
      * Finds a record using ambiguous name resolution.
-     * 
+     *
      * If a record is not found, an exception is thrown.
      *
      * @param string       $anr
@@ -937,7 +937,7 @@ class Builder
      */
     public function whereEnabled()
     {
-        return $this->rawFilter('(!(UserAccountControl:1.2.840.113556.1.4.803:=2))');
+        return $this->rawFilter('(!('.$this->schema->disabledAttribute().'))');
     }
 
     /**
@@ -947,7 +947,7 @@ class Builder
      */
     public function whereDisabled()
     {
-        return $this->rawFilter('(UserAccountControl:1.2.840.113556.1.4.803:=2)');
+        return $this->rawFilter('('.$this->schema->disabledAttribute().')');
     }
 
     /**
@@ -959,7 +959,7 @@ class Builder
      */
     public function whereMemberOf($dn)
     {
-        return $this->whereEquals('memberof:1.2.840.113556.1.4.1941:', $dn);
+        return $this->whereEquals($this->schema->memberOfSearchAttribute(), $dn);
     }
 
     /**
@@ -1142,7 +1142,7 @@ class Builder
      */
     public function orWhereMemberOf($dn)
     {
-        return $this->orWhereEquals('memberof:1.2.840.113556.1.4.1941:', $dn);
+        return $this->orWhereEquals($this->schema->memberOfSearchAttribute(), $dn);
     }
 
     /**

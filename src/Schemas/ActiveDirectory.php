@@ -447,6 +447,14 @@ class ActiveDirectory implements SchemaInterface
     /**
      * {@inheritdoc}
      */
+    public function memberOfSearchAttribute()
+    {
+        return 'memberof:1.2.840.113556.1.4.1941:';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function messageTrackingEnabled()
     {
         return 'messagetrackingenabled';
@@ -1090,5 +1098,13 @@ class ActiveDirectory implements SchemaInterface
     public function convertSid()
     {
         return true;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function disabledAttribute()
+    {
+        return 'UserAccountControl:1.2.840.113556.1.4.803:=2';
     }
 }

@@ -529,6 +529,15 @@ interface SchemaInterface
     public function memberOf();
 
     /**
+     * The distinguished name of the groups to which this object belongs.
+     *
+     * @link https://msdn.microsoft.com/en-us/library/ms677099(v=vs.85).aspx
+     *
+     * @return string
+     */
+    public function memberOfSearchAttribute();
+
+    /**
      * @link https://msdn.microsoft.com/en-us/library/ms981934(v=exchg.65).aspx
      *
      * @return string
@@ -1220,4 +1229,9 @@ interface SchemaInterface
      * @return boolean
      */
     public function convertSid();
+
+    /**
+     * Is account disabled attribute
+     */
+    public function disabledAttribute();
 }

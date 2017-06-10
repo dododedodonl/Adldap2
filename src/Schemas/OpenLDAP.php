@@ -67,4 +67,18 @@ class OpenLDAP extends ActiveDirectory
     {
         return false;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function disabledAttribute() {
+        return 'pwdAccountLockedTime';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function memberOfSearchAttribute() {
+        return 'memberOf';
+    }
 }
